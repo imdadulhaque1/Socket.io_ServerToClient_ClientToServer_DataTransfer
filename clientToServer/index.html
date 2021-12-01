@@ -8,17 +8,22 @@
  </head>
  <body>
 
-    <h1 id="myTime"></h1>
+    <input id="name" type="text">
+    <button id="send" onclick="send()">Send</button>
+
+
+
 
       <script src="/socket.io/socket.io.js"></script>
       <script>
           let socket =  io();
 
-        //   Data Catch, which is through from Server
-        socket.on('MyEvent', function(msg){
-            // document.write(msg);
-            document.getElementById('myTime').innerHTML=msg;
-        })
+        
+        function send(){
+          let name=document.getElementById('name').value;
+
+          socket.send(name)
+        }
       </script>
  </body>
  </html>

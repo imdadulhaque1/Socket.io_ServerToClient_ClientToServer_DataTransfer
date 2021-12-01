@@ -1,4 +1,4 @@
-const express = require('express')
+ const express = require('express')
 const app = express();
 const http = require('http');
 const expressServer = http.createServer(app);
@@ -11,23 +11,10 @@ const io = new Server(expressServer);   //made socket server with respect to exp
 io.on('connection', function(socket){
     console.log("New User Connected!");
 
-    //--->User Disconnection Status
-    socket.on('disconnect', function(){
-        console.log("User disconnected!")
+    socket.on('message', function(msg){
+        console.log(msg);
     })
 
-    //--->Data Send Server to Client (Data through ----> )
-    // setTimeout(function(){
-    //     socket.send("Data sending flow status from server to client(Server --> Client)!")
-    // }, 10000)
-
-    // ---> Callback functions working server to client(Continuously getting data from server)
-    setInterval(function(){
-        let d=new Date();
-        let t=d.getTime();
-        // socket.send(t); 
-        socket.emit('MyEvent', t)
-    },1000)
 
 })
 
