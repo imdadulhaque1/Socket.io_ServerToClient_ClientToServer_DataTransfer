@@ -13,11 +13,18 @@
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
-    let socket =  io();
+    let socketBuy =  io("/buy");
     
-    socket.on("MyBroatcast", function(data){
+    socketBuy.on("MyBroatcast", function(data){
       document.getElementById('msg').innerHTML=data;
     })
+
+
+    // let socketSell =  io("/sell");
+    
+    // socketSell.on("MyBroatcast", function(data){
+    //   document.getElementById('msg').innerHTML=data;
+    // })
   </script>
  </body>
  </html>
