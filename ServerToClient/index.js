@@ -27,7 +27,7 @@ io.on('connection', function(socket){
         let t=d.getTime();
         // socket.send(t); 
         socket.emit('MyEvent', t)
-    },1000)
+    },300)
 
 })
 
