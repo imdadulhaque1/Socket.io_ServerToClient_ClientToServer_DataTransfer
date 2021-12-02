@@ -11,7 +11,7 @@ const io = new Server(expressServer);   //made socket server with respect to exp
 io.on('connection', function(socket){
     console.log("New User Connected!");
 
-    socket.on('message', function(msg){
+    socket.on('myEvent', function(msg){
         console.log(msg);
     })
 
